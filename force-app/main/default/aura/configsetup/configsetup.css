@@ -1,0 +1,32 @@
+.THIS .configsetup_in {
+   background-color: #fff;
+    height: auto;
+    width: 100%;
+    float: left;
+    padding: 0 0 15px 0;
+}
+.THIS .configheader {
+    padding: 15px;
+}
+.THIS .navbar_config {
+     border: 1px solid #1EBFAE;
+    padding: 30px;
+    background-color: #1EBFAE;
+    width: 100%;
+   
+}
+.THIS .heading {
+    width: auto;
+    float: left;
+    font-size: 20px;
+    color: #fff;
+    font-style: oblique;
+}
+
+
+.THIS .configbody {
+    border: 1px solid #c6c6c6;
+    padding: 15px 15px 0 15px;;
+    float: left;
+    width: 100%;
+}

@@ -1,0 +1,8 @@
+td:nth-child(odd) {
+                width: 10%;
+				white-space: wrap;
+            }
+td:nth-child(even) {
+                width: 10%;
+				white-space: wrap;
+            }

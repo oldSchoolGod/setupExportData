@@ -1,0 +1,37 @@
+<aura:component controller="exportController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="selectedObject" type="String" default="Account"/>
+    <aura:attribute name="listOfObjects" type="String[]" default="Processing..." /> 
+    <aura:attribute name="listOfFields" type="List" />
+    <aura:attribute name="selectedFields" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="configsetup">
+        <div class="configsetup_in">
+            <div class="configheader">
+                <div class="navbar_config ">
+                    <p class="heading " >Setup Export Data</p>
+                </div>
+                <div class="configbody">
+                    <lightning:input label="Setup Name" required="true" aura:id="setupName"></lightning:input>
+                    <lightning:select label="Please Choose a Object" value="{!v.selectedObject}" onchange="{!c.getFields}" required="true">
+                        <aura:iteration items="{!v.listOfObjects}" var="Object" >
+                            <option value="{!Object}" text="{!Object}" />  
+                        </aura:iteration>
+                    </lightning:select>
+                    <lightning:input type="number" name="Limits" aura:id = "dataLimits" label="Enter Limit (Max data shown on data table)" />
+                    
+                    <lightning:dualListbox name="fields"
+                                           label= "Select Fields"
+                                           sourceLabel="Available"
+                                           selectedLabel="Selected"
+                                           fieldLevelHelp="Select your Fields"
+                                           options="{!v.listOfFields}"
+                                           onchange="{! c.getSelectedFields }"/>
+                    <div class="slds-align_absolute-center slds-p-vertical_large">
+                        <lightning:button variant="brand" label="Save Configuration" title="Save Configuration" onclick="{! c.saveConfigure }" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

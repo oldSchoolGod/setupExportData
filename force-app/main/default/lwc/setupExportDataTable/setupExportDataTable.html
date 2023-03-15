@@ -1,0 +1,78 @@
+<template>
+
+<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Name">Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Data_Limits">Data_Limits</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Fields">Fields</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Object Name">Object Name</div>
+                    </th>
+                      <th class="" scope="col">
+                        <div class="slds-truncate" title="Delete Function">Delete record</div>
+                    </th>
+                     <th class="" scope="col">
+                        <div class="slds-truncate" title="CSVfile Generate">Generate CSV File</div>
+                    </th>
+                      <th class="" scope="col">
+                        <div class="slds-truncate" title="PDFfile Generate">Generate PDF File</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                     <template for:each={data} for:item="con">
+                    <tr key={con.Id}>
+
+                        <th scope="col">
+                            <div >{con.Name}</div>
+                        </th>
+                        <th scope="col">
+                            <div>{con.data_Limits__c}</div>
+                        </th>
+                        <th scope="col">
+                            <div>{con.Fields__c}</div>
+                        </th>
+                         
+                        <th scope="col">
+                            <div>{con.Object_Name__c}</div>
+                        </th>
+                          <th scope="col">
+                       <lightning-button variant="destructive" 
+                                           label="Delete"
+                                           icon-name="utility:delete"
+                                           data-record-id={con.Id}
+                                           icon-position="right"
+                                           onclick={deleteRows}>
+                       </lightning-button>                       
+                      </th>
+                        <th scope="col">
+                       <lightning-button variant="brand" 
+                                           label="GenerateCSV"
+                                           icon-name="utility:Insert"
+                                           data-record-id={con.Id}
+                                           icon-position="right"
+                                           onclick={GenerateCSV}>
+                       </lightning-button>                       
+                      </th>
+                      <th scope="col">
+                  <lightning-button variant="success" 
+                                           label="GeneratePDF"
+                                           icon-name="utility:Insert"
+                                           data-record-id={con.Id}
+                                           icon-position="right"
+                                           onclick={createPdf}>
+                       </lightning-button>                     
+                      </th>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+</template>
